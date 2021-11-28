@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.englishqq.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_homeFragment_to_checkListDialog"
+            app:destination="@id/checkListDialog" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.englishqq.ui.about.AboutFragment"
+        android:label="AboutFragment"
+        tools:layout="@layout/fragment_about"/>
+
+    <dialog
+        android:id="@+id/checkListDialog"
+        android:name="com.example.englishqq.ui.dialog.CheckListDialog"
+        android:label="CheckListDialog"
+        tools:layout="@layout/dialog_check_list"
+        >
+        <action
+            android:id="@+id/action_checkListDialog_to_mainStudyFragment2"
+            app:destination="@id/mainStudyFragment2" />
+    </dialog>
+    <fragment
+        android:id="@+id/mainStudyFragment2"
+        android:name="com.example.englishqq.ui.study.mainstudy.MainStudyFragment"
+        android:label="MainStudyFragment"
+        tools:layout="@layout/fragment_main_study"
+        >
+        <action
+            android:id="@+id/action_mainStudyFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/navigation"
+            />
+    </fragment>
+
+</navigation>
