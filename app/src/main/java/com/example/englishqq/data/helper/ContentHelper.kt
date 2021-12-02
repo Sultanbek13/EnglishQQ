@@ -1,6 +1,5 @@
 package com.example.englishqq.data.helper
 
-import android.util.Log
 import com.example.englishqq.data.N
 import com.example.englishqq.data.model.CurrentType
 import com.example.englishqq.data.model.Material
@@ -22,14 +21,13 @@ class ContentHelper(private val db: FirebaseFirestore) {
             }
     }
 
-    fun getListWords(onSuccess: (currentType: List<CurrentType>) -> Unit, onFailure: (msg: String?) -> Unit) {
-        db.collection(N.MATERIAL).document("greeting").collection("currentType").get()
+    fun getListWords(typeId: String?, onSuccess: (currentType: List<CurrentType>) -> Unit, onFailure: (msg: String?) -> Unit) {
+        db.collection(N.MATERIAL).document(typeId!!).collection("currentType").get()
                 .addOnSuccessListener {
                     val res = it.documents.map { doc->
                         doc.toObject(CurrentType::class.java)!!
                     }
                     onSuccess.invoke(res)
-                    Log.d("asd", "SUCCESSFULLY")
                 }
                 .addOnFailureListener {
                     onFailure.invoke(it.localizedMessage)

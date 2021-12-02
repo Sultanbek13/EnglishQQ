@@ -53,7 +53,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                     etPassword.error = getString(R.string.password_not_match)
                     success = false
                 } else {
-                    viewModel.signUp(etEmail.text.toString(), etRepeatPassword.text.toString())
+                    viewModel.signUp(etEmail.text.toString(), etRepeatPassword.text.toString(), etFirstName.text.toString(), etLastName.text.toString())
                 }
             }
         }

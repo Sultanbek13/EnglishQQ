@@ -19,9 +19,4 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.findNavController()
 
     }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        navController.popBackStack()
-    }
 }

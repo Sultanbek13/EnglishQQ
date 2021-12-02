@@ -12,19 +12,19 @@ class SignUpViewModel(private val authHelper: AuthHelper) : ViewModel() {
     val signUpStatus : LiveData<Resource<String?>>
         get() = mutableSignUpStatus
 
-    fun signUp(email: String, password: String) {
+    fun signUp(email: String, password: String, firstName: String, lastName: String) {
         mutableSignUpStatus.value = Resource.loading()
-        authHelper.signUp(email,password,
+        authHelper.signUp(email,password,firstName,lastName,
             {
-                addUserToDb()
+                addUserToDb(firstName, lastName)
             },
             {
                 mutableSignUpStatus.value = Resource.error(it)
             })
     }
 
-    private fun addUserToDb() {
-        authHelper.addUserToDb(
+    private fun addUserToDb(firstName: String, lastName: String) {
+        authHelper.addUserToDb(firstName, lastName,
             {
                 mutableSignUpStatus.value = Resource.success(null)
             },

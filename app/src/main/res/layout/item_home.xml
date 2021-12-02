@@ -9,15 +9,22 @@
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_large"
-        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_large_large"
         android:layout_marginEnd="@dimen/margin_large"
+        android:layout_marginBottom="@dimen/margin_large_large"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="32dp"
+        android:innerRadius="0dp"
+        android:shape="ring"
+        android:thicknessRatio="1.9"
+        android:elevation="12dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/color_main"
+            android:background="@color/white"
             android:orientation="vertical">
 
             <ImageView
@@ -34,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:text="Приветствие"
                 android:textStyle="bold"
-                android:textColor="@color/white"
+                android:textColor="@color/color_main"
                 android:layout_gravity="center"
                 android:textSize="16sp"
                 android:layout_marginTop="@dimen/margin_standard"
@@ -58,7 +65,7 @@
                 android:layout_gravity="center"
                 android:text="3/10"
                 android:textSize="12sp"
-                android:textColor="@color/white"
+                android:textColor="@color/color_main"
                 android:layout_marginBottom="@dimen/margin_standard" />
 
         </LinearLayout>

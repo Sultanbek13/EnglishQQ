@@ -10,8 +10,6 @@ import org.w3c.dom.Text
 
 class CheckListAdapter : RecyclerView.Adapter<CheckListAdapter.ViewHolder>() {
 
-    private lateinit var typeId: String
-
 /*    private var onClick: (typeId: CurrentType) -> Unit = {
     }
 
@@ -23,7 +21,6 @@ class CheckListAdapter : RecyclerView.Adapter<CheckListAdapter.ViewHolder>() {
         fun populateModel(studyList: CurrentType) {
             binding.tvEnglishWord.text = studyList.wordEnglish
             binding.tvQQWord.text = studyList.wordQQ
-            typeId = studyList.themeId
         }
     }
 

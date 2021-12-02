@@ -57,12 +57,11 @@
             android:background="@color/app_color"
             >
 
-            <TextView
-                android:id="@+id/tvEnglishWord"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etInput"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:text="Hello!"
                 android:gravity="center"
                 android:textSize="@dimen/text_size_standard"
                 android:textColor="@color/white"
@@ -71,36 +70,22 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewQQWord"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnNext"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/black"
+        android:paddingHorizontal="16dp"
+        android:text="Jawabin bilew"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:cornerRadius="8dp"
+        android:layout_margin="@dimen/margin_large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardViewEnglishWord"
-        android:layout_marginStart="@dimen/margin_standard"
-        android:layout_marginEnd="@dimen/margin_standard"
-        android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginBottom="@dimen/margin_large_large"
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@color/app_color"
-            >
-
-            <TextView
-                android:id="@+id/tvQQWord"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:text="Salem!"
-                android:gravity="center"
-                android:textSize="@dimen/text_size_standard"
-                android:textColor="@color/white"
-                />
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+        android:visibility="visible"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

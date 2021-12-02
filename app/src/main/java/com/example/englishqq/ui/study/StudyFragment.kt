@@ -1,22 +1,16 @@
 package com.example.englishqq.ui.study
 
-import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.Adapter
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
-import com.airbnb.lottie.LottieAnimationView
 import com.example.englishqq.R
 import com.example.englishqq.data.model.ResourceState
 import com.example.englishqq.databinding.FragmentStudyBinding
-import com.example.englishqq.databinding.ItemStudyBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class StudyFragment : Fragment(R.layout.fragment_study) {
@@ -32,9 +26,12 @@ class StudyFragment : Fragment(R.layout.fragment_study) {
         binding = FragmentStudyBinding.bind(view)
         navController = Navigation.findNavController(view)
 
-        binding.rvStudy.adapter = adapter
+        val bundle = arguments?.getString("id").toString()
+        Log.d("asd", bundle)
 
-        viewModel.getStudyItem()
+        viewModel.getStudyItem(bundle)
+
+        binding.rvStudy.adapter = adapter
 
         setObservers()
 

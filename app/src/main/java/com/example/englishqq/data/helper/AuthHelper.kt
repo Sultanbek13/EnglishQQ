@@ -9,6 +9,8 @@ class AuthHelper(private val auth: FirebaseAuth, private val db: FirebaseFiresto
 
     fun signUp(email: String,
                password: String,
+               firstName: String,
+               lastName: String,
                onSuccess: () -> Unit,
                onFailure: (msg: String?) -> Unit
     ) {
@@ -36,11 +38,22 @@ class AuthHelper(private val auth: FirebaseAuth, private val db: FirebaseFiresto
             }
     }
 
-    fun addUserToDb(onSuccess: () -> Unit, onFailure: (msg: String?) -> Unit) {
-        val user = User(auth.currentUser!!.uid, auth.currentUser!!.email!!)
+    fun addUserToDb(firstName: String, lastName: String, onSuccess: () -> Unit, onFailure: (msg: String?) -> Unit) {
+        val user = User(uid = auth.currentUser!!.uid, email = auth.currentUser!!.email!!, firstName = firstName, lastName = lastName)
         db.collection(N.USER).document(user.uid).set(user)
             .addOnSuccessListener {
                 onSuccess.invoke()
+            }
+            .addOnFailureListener {
+                onFailure.invoke(it.localizedMessage)
+            }
+    }
+
+    fun getUserName(onSuccess: (user: User) -> Unit, onFailure: (msg: String?) -> Unit) {
+        db.collection(N.USER).document(auth.currentUser!!.uid).get()
+            .addOnSuccessListener {
+                val res = it.toObject(User::class.java)!!
+                onSuccess.invoke(res)
             }
             .addOnFailureListener {
                 onFailure.invoke(it.localizedMessage)

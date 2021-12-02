@@ -17,11 +17,10 @@ class MainStudyFragment : Fragment(R.layout.fragment_main_study) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentMainStudyBinding.bind(view)
-        navController = Navigation.findNavController(requireActivity(),R.id.fragmentContainerStudy)
-        navController = Navigation.findNavController(view)
+        navController = Navigation.findNavController(requireActivity(),R.id.nav_host_fragment)
 
-        binding.iconClose.setOnClickListener {
-            navController.navigate(R.id.action_mainStudyFragment_to_homeFragment)
+       binding.iconClose.setOnClickListener {
+            navController.navigate(R.id.action_mainStudyFragment_to_mainFragment)
         }
     }
 }

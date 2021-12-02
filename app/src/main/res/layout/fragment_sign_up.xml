@@ -2,12 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_background"
+    android:background="@color/app_color"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilFirstName"
-        style="@style/Widget.Design.TextInputLayout"
+        style="@style/TextInputLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_large"
@@ -18,21 +18,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.3"
+        app:boxCornerRadiusBottomStart="@dimen/margin_large"
+        app:boxCornerRadiusTopEnd="@dimen/margin_large"
+        app:boxCornerRadiusTopStart="@dimen/margin_large"
+        app:boxCornerRadiusBottomEnd="@dimen/margin_large"
         >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etFirstName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:paddingVertical="@dimen/padding_standard"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:maxLength="24"
+            android:padding="12dp"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilLastName"
-        style="@style/Widget.Design.TextInputLayout"
+        style="@style/TextInputLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_large"
@@ -43,21 +51,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.4"
+        app:boxCornerRadiusBottomStart="@dimen/margin_large"
+        app:boxCornerRadiusTopEnd="@dimen/margin_large"
+        app:boxCornerRadiusTopStart="@dimen/margin_large"
+        app:boxCornerRadiusBottomEnd="@dimen/margin_large"
         >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etLastName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:paddingVertical="@dimen/padding_standard"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:maxLength="24"
+            android:padding="12dp"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilEmail"
-        style="@style/Widget.Design.TextInputLayout"
+        style="@style/TextInputLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -70,6 +86,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.5"
+        app:boxCornerRadiusBottomStart="@dimen/margin_large"
+        app:boxCornerRadiusTopEnd="@dimen/margin_large"
+        app:boxCornerRadiusTopStart="@dimen/margin_large"
+        app:boxCornerRadiusBottomEnd="@dimen/margin_large"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -78,13 +98,17 @@
             android:layout_height="match_parent"
             android:inputType="textEmailAddress"
             android:paddingVertical="8dp"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:maxLength="24"
+            android:padding="12dp"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilPassword"
-        style="@style/Widget.Design.TextInputLayout"
+        style="@style/TextInputLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -97,21 +121,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.6"
+        app:boxCornerRadiusBottomStart="@dimen/margin_large"
+        app:boxCornerRadiusTopEnd="@dimen/margin_large"
+        app:boxCornerRadiusTopStart="@dimen/margin_large"
+        app:boxCornerRadiusBottomEnd="@dimen/margin_large"
         >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="textEmailAddress"
+            android:inputType="textPassword"
             android:paddingVertical="8dp"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:maxLength="24"
+            android:padding="12dp"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilRepeatPassword"
-        style="@style/Widget.Design.TextInputLayout"
+        style="@style/TextInputLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_large"
@@ -124,15 +156,23 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.7"
+        app:boxCornerRadiusBottomStart="@dimen/margin_large"
+        app:boxCornerRadiusTopEnd="@dimen/margin_large"
+        app:boxCornerRadiusTopStart="@dimen/margin_large"
+        app:boxCornerRadiusBottomEnd="@dimen/margin_large"
         >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etRepeatPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="textEmailAddress"
+            android:inputType="textPassword"
             android:paddingVertical="@dimen/padding_standard"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:maxLines="1"
+            android:maxLength="24"
+            android:padding="12dp"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -147,10 +187,11 @@
         android:textAllCaps="false"
         android:textSize="@dimen/text_size_standard"
         app:cornerRadius="8dp"
+        android:textColor="@color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.8"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/tilRepeatPassword"
         />
 
     <ProgressBar

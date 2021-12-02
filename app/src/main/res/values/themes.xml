@@ -13,4 +13,18 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="TextInputLayoutStyle">
+        <item name="boxStrokeColor">@color/white</item>
+        <item name="boxBackgroundMode">outline</item>
+        <item name="boxBackgroundColor">@color/app_color</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="startIconTint">@color/white</item>
+        <item name="endIconTint">@color/white</item>
+        <item name="hintTextColor">@color/white</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/margin_large_large</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/margin_large_large</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/margin_large_large</item>
+        <item name="boxCornerRadiusTopStart">@dimen/margin_large_large</item>
+    </style>
 </resources>

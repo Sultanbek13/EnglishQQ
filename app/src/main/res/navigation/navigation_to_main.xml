@@ -24,7 +24,11 @@
         android:name="com.example.englishqq.ui.auth.main.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main"
-        />
+        >
+        <action
+            android:id="@+id/action_mainFragment_to_checkListDialog"
+            app:destination="@id/checkListDialog" />
+    </fragment>
     <fragment
         android:id="@+id/signUpFragment"
         android:name="com.example.englishqq.ui.auth.signup.SignUpFragment"
@@ -58,5 +62,34 @@
             app:popUpTo="@id/navigation_to_main"
             />
     </fragment>
+    <fragment
+        android:id="@+id/mainStudyFragment"
+        android:name="com.example.englishqq.ui.study.mainstudy.MainStudyFragment"
+        android:label="MainStudyFragment"
+        tools:layout="@layout/fragment_main_study"
+        >
+        <argument
+            android:name="typeId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_mainStudyFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/checkListDialog"
+        android:name="com.example.englishqq.ui.dialog.CheckListDialog"
+        android:label="CheckListDialog"
+        tools:layout="@layout/dialog_check_list"
+        >
+        <action
+            android:id="@+id/action_checkListDialog_to_mainStudyFragment"
+            app:destination="@id/mainStudyFragment" />
+        <argument
+            android:name="typeId"
+            app:argType="string" />
+        <argument
+            android:name="themeName"
+            app:argType="string" />
+    </dialog>
 
 </navigation>

@@ -25,7 +25,7 @@ val dataModule = module {
 val viewModelModule = module {
     viewModel { SignInViewModel(get()) }
     viewModel { SignUpViewModel(get()) }
-    viewModel { HomeViewModel(get()) }
+    viewModel { HomeViewModel(get(),get()) }
     viewModel { DialogViewModel(get()) }
     viewModel { StudyViewModel(get()) }
 }
