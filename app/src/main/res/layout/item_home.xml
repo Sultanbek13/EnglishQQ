@@ -7,7 +7,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewTheme"
         android:layout_width="160dp"
-        android:layout_height="wrap_content"
+        android:layout_height="270dp"
         android:layout_marginStart="@dimen/margin_large"
         android:layout_marginTop="@dimen/margin_large_large"
         android:layout_marginEnd="@dimen/margin_large"
@@ -21,7 +21,7 @@
         android:elevation="12dp"
         >
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
@@ -39,13 +39,16 @@
                 android:id="@+id/themeName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Приветствие"
-                android:textStyle="bold"
-                android:textColor="@color/color_main"
+                android:layout_alignTop="@id/progressBar"
+                android:layout_centerInParent="true"
                 android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margin_standard"
+                android:layout_marginTop="-64dp"
+                android:gravity="center"
+                android:text="Приветствие"
+                android:textColor="@color/app_color_black"
                 android:textSize="16sp"
-                android:layout_marginTop="@dimen/margin_standard"
-                />
+                android:textStyle="bold" />
 
             <ProgressBar
                 android:id="@+id/progressBar"
@@ -54,21 +57,25 @@
                 android:layout_height="4dp"
                 android:layout_marginStart="@dimen/margin_standard"
                 android:layout_marginEnd="@dimen/margin_standard"
-                android:layout_marginTop="@dimen/margin_large"
+                android:layout_marginTop="-16dp"
                 android:layout_marginBottom="@dimen/margin_standard"
+                android:layout_alignTop="@id/step"
                 android:progressDrawable="@drawable/custom_progress_bar"
                 />
 
             <TextView
+                android:id="@+id/step"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margin_standard"
                 android:text="3/10"
-                android:textSize="12sp"
-                android:textColor="@color/color_main"
-                android:layout_marginBottom="@dimen/margin_standard" />
+                android:textColor="@color/app_color_black"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:textSize="12sp" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 

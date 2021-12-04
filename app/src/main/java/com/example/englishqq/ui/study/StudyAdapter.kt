@@ -1,67 +1,59 @@
 package com.example.englishqq.ui.study
 
+import android.content.Context
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import android.widget.VideoView
+import androidx.viewpager.widget.PagerAdapter
+import androidx.viewpager.widget.ViewPager
+import com.example.englishqq.R
 import com.example.englishqq.data.model.CurrentType
-import com.example.englishqq.data.model.Material
 import com.example.englishqq.databinding.ItemStudyBinding
 
-class StudyAdapter : RecyclerView.Adapter<StudyAdapter.ViewHolder>() {
+class StudyAdapter(private val context: Context, private val data: List<CurrentType>) : PagerAdapter() {
 
-    private var onItemCLick: (CurrentType) -> Unit = {}
+    private val layoutInflater: LayoutInflater = LayoutInflater.from(context)
+    private lateinit var binding: ItemStudyBinding
 
-/*
-    private var onClick: (currentType: CurrentType) -> Unit = {
+    override fun getCount(): Int {
+        return data.size
     }
-    fun setOnClickListener(onCLick: (currentType: CurrentType) -> Unit) {
-        this.onClick = onCLick
+
+    fun itemCount(): Int {
+        return data.size
     }
-*/
 
-    inner class ViewHolder(private val binding: ItemStudyBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun populateModel(currentType: CurrentType) {
+    override fun isViewFromObject(p0: View, p1: Any): Boolean {
+        return p0 == p1
+    }
 
-            binding.tvEnglishWord.text = currentType.wordEnglish
-            binding.tvQQWord.text = currentType.wordQQ
-            binding.tvTitle.text = currentType.title
+    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+        (container as ViewPager).removeView(`object` as View)
+    }
 
-            val uri = Uri.parse(currentType.contentUrl)
-            binding.contentView.setVideoURI(uri)
-            binding.contentView.requestFocus()
-            binding.contentView.start()
+    override fun instantiateItem(container: ViewGroup, position: Int): Any {
+        val view = layoutInflater.inflate(R.layout.item_study, container, false)
+        binding = ItemStudyBinding.bind(view)
 
-            binding.animationRe.setOnClickListener {
-                onItemCLick.invoke(currentType)
-                binding.contentView.setVideoURI(uri)
-                binding.contentView.requestFocus()
-                binding.contentView.start()
+        binding.tvTitle.text = data[position].title
+        binding.tvEnglishWord.text = data[position].wordEnglish
+        binding.tvQQWord.text = data[position].wordQQ
+        binding.contentView.setVideoURI(Uri.parse(data[position].contentUrl))
+
+        binding.contentView.setOnFocusChangeListener { view, hasFocus ->
+            Log.d("tekseriw", "position=$position, focus=$hasFocus ")
+            if (hasFocus) {
+                (view as VideoView).start()
                 binding.animationRe.playAnimation()
+            } else {
+                (view as VideoView).pause()
             }
         }
-    }
 
-    var models: MutableList<CurrentType> = mutableListOf()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemBinding =  ItemStudyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(itemBinding)
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.populateModel(models[position])
-    }
-
-    override fun getItemCount(): Int {
-        return models.size
-    }
-
-    fun onItemClick(onItemClick: (CurrentType) -> Unit) {
-        this.onItemCLick = onItemClick
+        container.addView(view)
+        return binding.root
     }
 }

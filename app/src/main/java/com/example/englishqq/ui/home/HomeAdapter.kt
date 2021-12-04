@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.englishqq.data.model.CurrentType
 import com.example.englishqq.data.model.Material
 import com.example.englishqq.databinding.ItemHomeBinding
 
@@ -16,10 +17,13 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
         fun populateModel(model : Material) {
 
             binding.themeName.text = model.themeName
+
             Glide
                     .with(binding.root.context)
                     .load(model.imageUrl)
                     .into(binding.themeImage)
+
+            binding.step.text = "1/${model.count}"
 
             binding.cardViewTheme.setOnClickListener {
                 onItemCLick.invoke(model)

@@ -33,4 +33,17 @@ class ContentHelper(private val db: FirebaseFirestore) {
                     onFailure.invoke(it.localizedMessage)
                 }
     }
+
+    fun getStep(typeId: String?, onSuccess: (currentType: List<CurrentType>) -> Unit, onFailure: (msg: String?) -> Unit) {
+        db.collection(N.MATERIAL).document(typeId!!).collection("currentType").get()
+                .addOnSuccessListener {
+                    val res = it.documents.map { doc ->
+                        doc.toObject(CurrentType::class.java)!!
+                    }
+                    onSuccess.invoke(res)
+                }
+                .addOnFailureListener {
+                    onFailure.invoke(it.localizedMessage)
+                }
+    }
 }

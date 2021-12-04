@@ -7,22 +7,28 @@
 
     <TextView
         android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0.18"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginEnd="@dimen/margin_large"
         android:text="Bul birden korip qalganda isletiledi."
+        android:maxLines="3"
+        android:gravity="center"
         android:textSize="@dimen/text_size_standard"
-        android:textColor="@color/app_color" />
+        android:textColor="@color/app_color_black" />
 
     <VideoView
         android:id="@+id/contentView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.37"
         android:layout_marginStart="@dimen/margin_standard"
         android:layout_marginEnd="@dimen/margin_standard"
         android:layout_marginTop="@dimen/margin_large_large"
@@ -65,7 +71,7 @@
                 android:text="Hello!"
                 android:gravity="center"
                 android:textSize="@dimen/text_size_standard"
-                android:textColor="@color/white"
+                android:textColor="@color/app_color_black"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -97,7 +103,8 @@
                 android:text="Salem!"
                 android:gravity="center"
                 android:textSize="@dimen/text_size_standard"
-                android:textColor="@color/white"
+                android:textColor="#FF4E5051"
+                android:textStyle="bold"
                 />
 
         </LinearLayout>

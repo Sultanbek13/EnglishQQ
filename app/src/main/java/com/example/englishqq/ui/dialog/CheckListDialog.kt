@@ -26,7 +26,6 @@ class CheckListDialog: BottomSheetDialogFragment() {
     private lateinit var binding:  DialogCheckListBinding
     private val adapter : CheckListAdapter = CheckListAdapter()
     private val viewModel: DialogViewModel by viewModel()
-   // private lateinit var mainFragment: MainFragment
     private lateinit var navController: NavController
     private lateinit var bundle: String
 
@@ -60,9 +59,9 @@ class CheckListDialog: BottomSheetDialogFragment() {
         binding.tvThemeName.text = bundleThemeName
 
         binding.btnStart.setOnClickListener {
-            val setBundle = bundleOf("id" to bundle)
-            navController.navigate(R.id.action_checkListDialog_to_mainStudyFragment, setBundle)
-            Log.d("typeId", setBundle.toString())
+            val action = CheckListDialogDirections.actionCheckListDialogToStudyFragment(bundle)
+            findNavController().navigate(action)
+            Log.d("typeId", bundle)
         }
     }
 

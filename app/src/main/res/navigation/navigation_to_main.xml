@@ -62,34 +62,34 @@
             app:popUpTo="@id/navigation_to_main"
             />
     </fragment>
-    <fragment
-        android:id="@+id/mainStudyFragment"
-        android:name="com.example.englishqq.ui.study.mainstudy.MainStudyFragment"
-        android:label="MainStudyFragment"
-        tools:layout="@layout/fragment_main_study"
-        >
-        <argument
-            android:name="typeId"
-            app:argType="string" />
-        <action
-            android:id="@+id/action_mainStudyFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
     <dialog
         android:id="@+id/checkListDialog"
         android:name="com.example.englishqq.ui.dialog.CheckListDialog"
         android:label="CheckListDialog"
         tools:layout="@layout/dialog_check_list"
         >
-        <action
-            android:id="@+id/action_checkListDialog_to_mainStudyFragment"
-            app:destination="@id/mainStudyFragment" />
         <argument
             android:name="typeId"
             app:argType="string" />
         <argument
             android:name="themeName"
             app:argType="string" />
+        <action
+            android:id="@+id/action_checkListDialog_to_studyFragment"
+            app:destination="@id/studyFragment" />
     </dialog>
+    <fragment
+        android:id="@+id/studyFragment"
+        android:name="com.example.englishqq.ui.study.StudyFragment"
+        android:label="StudyFragment"
+        tools:layout="@layout/fragment_study"
+        >
+        <argument
+            android:name="typeId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_studyFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 
 </navigation>

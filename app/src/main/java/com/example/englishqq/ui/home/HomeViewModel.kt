@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.englishqq.data.helper.AuthHelper
 import com.example.englishqq.data.helper.ContentHelper
+import com.example.englishqq.data.model.CurrentType
 import com.example.englishqq.data.model.Material
 import com.example.englishqq.data.model.Resource
 import com.example.englishqq.data.model.User
@@ -37,6 +38,21 @@ class HomeViewModel(private val contentHelper: ContentHelper, private val authHe
             {
                 mutableUserInfo.value = Resource.error(it)
             }
+        )
+    }
+
+    private val mutableCurrentInfo: MutableLiveData<Resource<List<CurrentType>>> = MutableLiveData()
+    val currentInfo: LiveData<Resource<List<CurrentType>>> get() = mutableCurrentInfo
+
+    fun getCurrentInfo(typeId: String) {
+        mutableUserInfo.value = Resource.loading()
+        contentHelper.getStep(typeId,
+                {
+                    mutableCurrentInfo.value = Resource.success(it)
+                },
+                {
+                    mutableCurrentInfo.value = Resource.error(it)
+                }
         )
     }
 }
