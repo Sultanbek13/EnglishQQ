@@ -1,13 +1,12 @@
 package com.example.englishqq.ui.study
 
 import android.os.Bundle
-import android.provider.ContactsContract
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.core.view.get
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -40,9 +39,10 @@ class StudyFragment : Fragment(R.layout.fragment_study) {
         data.observe(requireActivity(), {
             viewPagerStudyAdapter = StudyAdapter(requireContext(), it)
             binding.viewPagerStudy.adapter = viewPagerStudyAdapter
-            val indicators = arrayOfNulls<ImageView>(viewPagerStudyAdapter!!.itemCount())
+            val indicators = arrayOfNulls<ImageView?>(viewPagerStudyAdapter!!.itemCount())
             val layoutParams: LinearLayout.LayoutParams = LinearLayout.LayoutParams(20, 20)
             layoutParams.setMargins(8, 0, 8, 0)
+            binding.indicatorsContainer.removeAllViews()
             for (i in indicators.indices) {
                 indicators[i] = ImageView(requireContext())
                 indicators[i].apply {
@@ -65,10 +65,10 @@ class StudyFragment : Fragment(R.layout.fragment_study) {
             })
         })
 
-        viewModel.getStudyItem(args.typeId)
+        viewModel.getStudyItem(args.themeId)
 
         binding.iconClose.setOnClickListener {
-            navController.navigate(R.id.action_studyFragment_to_mainFragment)
+            requireActivity().onBackPressed()
         }
     }
 
@@ -80,6 +80,18 @@ class StudyFragment : Fragment(R.layout.fragment_study) {
                 imageView.setImageDrawable(
                         ContextCompat.getDrawable(requireContext(), R.drawable.color_dot)
                 )
+                if (i == childCount-1) {
+                    binding.btnClear.isVisible = true
+                    binding.winAnimation.isVisible = true
+                    binding.winAnimation.playAnimation()
+                    binding.btnClear.setOnClickListener {
+                        val bundle = bundleOf("testId" to args.themeId)
+                        navController.navigate(R.id.action_studyFragment_to_testFragment, bundle)
+                    }
+                } else {
+                    binding.btnClear.isVisible = false
+                    binding.winAnimation.isVisible = false
+                }
             } else {
                 imageView.setImageDrawable(
                         ContextCompat.getDrawable(requireContext(), R.drawable.degree)

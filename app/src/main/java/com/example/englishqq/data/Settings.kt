@@ -11,6 +11,5 @@ class Settings(private val context: Context) {
     private val prefs = context.getSharedPreferences("${context.packageName}.prefs", Context.MODE_PRIVATE)
     var signedIn : Boolean
         set(value) = prefs.edit().putBoolean(KEY_SIGNED_IN,value).apply()
-        get() = prefs.getBoolean(KEY_SIGNED_IN,false)
-
+        get() = prefs.getBoolean(KEY_SIGNED_IN, false)
 }

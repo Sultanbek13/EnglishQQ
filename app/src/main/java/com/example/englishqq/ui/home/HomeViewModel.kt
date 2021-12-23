@@ -26,6 +26,7 @@ class HomeViewModel(private val contentHelper: ContentHelper, private val authHe
             }
         )
     }
+
     private val mutableUserInfo: MutableLiveData<Resource<User>> = MutableLiveData()
     val userInfo: LiveData<Resource<User>> get() = mutableUserInfo
 
@@ -38,21 +39,6 @@ class HomeViewModel(private val contentHelper: ContentHelper, private val authHe
             {
                 mutableUserInfo.value = Resource.error(it)
             }
-        )
-    }
-
-    private val mutableCurrentInfo: MutableLiveData<Resource<List<CurrentType>>> = MutableLiveData()
-    val currentInfo: LiveData<Resource<List<CurrentType>>> get() = mutableCurrentInfo
-
-    fun getCurrentInfo(typeId: String) {
-        mutableUserInfo.value = Resource.loading()
-        contentHelper.getStep(typeId,
-                {
-                    mutableCurrentInfo.value = Resource.success(it)
-                },
-                {
-                    mutableCurrentInfo.value = Resource.error(it)
-                }
         )
     }
 }

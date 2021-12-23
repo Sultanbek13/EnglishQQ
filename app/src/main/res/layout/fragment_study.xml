@@ -48,9 +48,9 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loading"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:lottie_rawRes="@raw/loading_progress_bar"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:lottie_rawRes="@raw/second_loading"
         app:lottie_autoPlay="true"
         app:lottie_loop="false"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -58,14 +58,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnClear"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginEnd="@dimen/margin_large"
+        android:backgroundTint="#7CB342"
+        android:padding="@dimen/margin_standard"
+        android:text="Tu'sinikli"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_standard"
+        app:cornerRadius="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/indicatorsContainer"
+        android:layout_marginBottom="@dimen/margin_standard"
+        android:visibility="gone"
+        />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/winAnimation"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:visibility="gone"
+        app:lottie_rawRes="@raw/win_anim"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        app:layout_constraintBottom_toTopOf="@id/indicatorsContainer"
+        app:layout_constraintEnd_toEndOf="@id/indicatorsContainer"
+        app:layout_constraintStart_toStartOf="@id/indicatorsContainer" />
+
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/indicatorsContainer"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/btnClear"
+        app:layout_constraintEnd_toEndOf="@id/btnClear"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.97"

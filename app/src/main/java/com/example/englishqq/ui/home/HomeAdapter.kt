@@ -1,6 +1,7 @@
 package com.example.englishqq.ui.home
 
 import android.annotation.SuppressLint
+import android.graphics.ColorSpace
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +14,11 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
     private var onItemCLick: (Material) -> Unit = {}
 
+/*    private var stepInfo: (currentType: List<CurrentType>) -> Unit = {}
+    fun setOnStepListener(onStepInfo: (currentType: List<CurrentType>) -> Unit) {
+        this.stepInfo = onStepInfo
+    }*/
+
     inner class ViewHolder(private val binding: ItemHomeBinding) : RecyclerView.ViewHolder(binding.root) {
         fun populateModel(model : Material) {
 
@@ -24,6 +30,9 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
                     .into(binding.themeImage)
 
             binding.step.text = "1/${model.count}"
+          /*  homeFragment.step {
+                binding.step.text = it.step.toString()
+            }*/
 
             binding.cardViewTheme.setOnClickListener {
                 onItemCLick.invoke(model)

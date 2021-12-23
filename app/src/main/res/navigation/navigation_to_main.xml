@@ -13,7 +13,8 @@
         >
         <action
             android:id="@+id/action_signInFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            />
         <action
             android:id="@+id/action_signInFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
@@ -21,13 +22,21 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.englishqq.ui.auth.main.MainFragment"
+        android:name="com.example.englishqq.ui.main.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main"
         >
         <action
+            android:id="@+id/action_mainFragment_to_signInFragment"
+            app:destination="@id/signInFragment"
+            app:popUpToInclusive="true"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/navigation_to_main"
+            />
+        <action
             android:id="@+id/action_mainFragment_to_checkListDialog"
             app:destination="@id/checkListDialog" />
+
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -62,22 +71,6 @@
             app:popUpTo="@id/navigation_to_main"
             />
     </fragment>
-    <dialog
-        android:id="@+id/checkListDialog"
-        android:name="com.example.englishqq.ui.dialog.CheckListDialog"
-        android:label="CheckListDialog"
-        tools:layout="@layout/dialog_check_list"
-        >
-        <argument
-            android:name="typeId"
-            app:argType="string" />
-        <argument
-            android:name="themeName"
-            app:argType="string" />
-        <action
-            android:id="@+id/action_checkListDialog_to_studyFragment"
-            app:destination="@id/studyFragment" />
-    </dialog>
     <fragment
         android:id="@+id/studyFragment"
         android:name="com.example.englishqq.ui.study.StudyFragment"
@@ -85,10 +78,63 @@
         tools:layout="@layout/fragment_study"
         >
         <argument
+            android:name="themeId"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_studyFragment_to_testFragment"
+            app:destination="@id/testFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
+    <dialog
+        android:id="@+id/checkListDialog"
+        android:name="com.example.englishqq.ui.dialog.CheckListDialog"
+        android:label="CheckListDialog"
+        tools:layout="@layout/dialog_check_list"
+        >
+
+        <argument
             android:name="typeId"
             app:argType="string" />
+
+        <argument
+            android:name="themeName"
+            app:argType="string" />
         <action
-            android:id="@+id/action_studyFragment_to_mainFragment"
+            android:id="@+id/action_checkListDialog_to_studyFragment"
+            app:destination="@id/studyFragment" />
+
+    </dialog>
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="com.example.englishqq.ui.test.TestFragment"
+        android:label="TestFragment"
+        tools:layout="@layout/fragment_test"
+        >
+        <argument
+            android:name="testId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_testFragment_to_finishFragment"
+            app:destination="@id/finishFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/finishFragment"
+        android:name="com.example.englishqq.ui.finish.FinishFragment"
+        android:label="FinishFragment"
+        tools:layout="@layout/fragment_finish"
+        >
+        <action
+            android:id="@+id/action_finishFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 

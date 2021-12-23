@@ -59,4 +59,14 @@ class AuthHelper(private val auth: FirebaseAuth, private val db: FirebaseFiresto
                 onFailure.invoke(it.localizedMessage)
             }
     }
+
+    fun editProfile(user: User, onSuccess: (user: User) -> Unit, onFailure: (msg: String?) -> Unit) {
+        db.collection(N.USER).document(user.uid).set(user)
+                .addOnSuccessListener {
+                    onSuccess.invoke(user)
+                }
+                .addOnFailureListener {
+                    onFailure.invoke(it.localizedMessage)
+                }
+    }
 }

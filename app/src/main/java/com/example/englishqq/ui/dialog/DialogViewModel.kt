@@ -15,7 +15,7 @@ class DialogViewModel(private val contentHelper: ContentHelper) : ViewModel() {
 
     fun getListWords(typeId: String?) {
         mutableCurrentWords.value = Resource.loading()
-        contentHelper.getListWords(typeId,
+        contentHelper.getStudyItem(typeId,
                 {
                     mutableCurrentWords.value = Resource.success(it)
                 },

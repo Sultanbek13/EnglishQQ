@@ -5,28 +5,33 @@
     android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/tickAnimation"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.18"
-        android:text="Bul birden korip qalganda isletiledi."
-        android:textSize="@dimen/text_size_standard"
-        android:textColor="@color/app_color" />
+        app:layout_constraintVertical_bias="0.15"
+        app:lottie_rawRes="@raw/tick"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        />
 
     <VideoView
         android:id="@+id/contentView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="@dimen/margin_standard"
         android:layout_marginEnd="@dimen/margin_standard"
         android:layout_marginTop="@dimen/margin_large_large"
-        android:layout_marginBottom="@dimen/margin_large_large" />
+        android:layout_marginBottom="@dimen/margin_large_large"
+        app:layout_constraintVertical_bias="0.3"
+        />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animationRe"
@@ -57,6 +62,38 @@
             android:background="@color/app_color"
             >
 
+            <TextView
+                android:id="@+id/tvEnglishWord"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:text="Hello!"
+                android:gravity="center"
+                android:textSize="@dimen/text_size_standard"
+                android:textColor="@color/app_color_black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardEdEnglishWord"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:layout_constraintTop_toBottomOf="@id/cardViewEnglishWord"
+        android:layout_marginStart="@dimen/margin_standard"
+        android:layout_marginEnd="@dimen/margin_standard"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginBottom="@dimen/margin_large_large"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/app_color"
+            >
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etInput"
                 android:layout_width="match_parent"
@@ -64,28 +101,42 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:textSize="@dimen/text_size_standard"
-                android:textColor="@color/white"
+                android:textColor="@color/app_color_black"
                 android:textStyle="bold" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnNext"
+        android:id="@+id/btnAnswer"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/black"
         android:paddingHorizontal="16dp"
         android:text="Jawabin bilew"
+        android:textColor="@color/white"
         android:textAllCaps="false"
         android:textSize="16sp"
         app:cornerRadius="8dp"
         android:layout_margin="@dimen/margin_large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardViewEnglishWord"
+        app:layout_constraintTop_toBottomOf="@id/cardEdEnglishWord"
         android:visibility="visible"
+        />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/winAnimation"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:visibility="gone"
+        app:lottie_rawRes="@raw/win_anim"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        app:layout_constraintTop_toBottomOf="@id/btnAnswer"
+        app:layout_constraintStart_toStartOf="@id/btnAnswer"
+        app:layout_constraintEnd_toEndOf="@id/btnAnswer"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

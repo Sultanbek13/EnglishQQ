@@ -2,11 +2,14 @@ package com.example.englishqq.ui.study
 
 import android.content.Context
 import android.net.Uri
-import android.util.Log
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.MediaController
+import android.widget.Toast
 import android.widget.VideoView
+import androidx.core.view.isVisible
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.example.englishqq.R
@@ -38,16 +41,16 @@ class StudyAdapter(private val context: Context, private val data: List<CurrentT
         val view = layoutInflater.inflate(R.layout.item_study, container, false)
         binding = ItemStudyBinding.bind(view)
 
-        binding.tvTitle.text = data[position].title
         binding.tvEnglishWord.text = data[position].wordEnglish
         binding.tvQQWord.text = data[position].wordQQ
         binding.contentView.setVideoURI(Uri.parse(data[position].contentUrl))
+        val mediaController = MediaController(context)
+        binding.contentView.setMediaController(mediaController)
+        mediaController.setAnchorView(binding.contentView)
 
         binding.contentView.setOnFocusChangeListener { view, hasFocus ->
-            Log.d("tekseriw", "position=$position, focus=$hasFocus ")
             if (hasFocus) {
                 (view as VideoView).start()
-                binding.animationRe.playAnimation()
             } else {
                 (view as VideoView).pause()
             }

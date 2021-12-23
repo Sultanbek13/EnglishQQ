@@ -1,8 +1,253 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_color" >
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:background="@color/app_color"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintCircleRadius="@dimen/margin_large"
+        />
+
+    <ImageView
+        android:id="@+id/settingIcon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_large_large"
+        android:layout_marginBottom="@dimen/margin_large_large"
+        android:src="@drawable/setting_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_standard"
+        android:text="@string/settings"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/settingIcon"
+        app:layout_constraintStart_toEndOf="@id/settingIcon"
+        app:layout_constraintTop_toTopOf="@id/settingIcon" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginTop="@dimen/margin_large_large"
+        android:layout_marginEnd="@dimen/margin_large"
+        app:cardCornerRadius="@dimen/margin_large"
+        app:layout_constraintTop_toBottomOf="@id/settingIcon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/horizontalLine1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="@dimen/margin_large"
+                android:background="@color/app_color_black"
+                app:layout_constraintTop_toBottomOf="@id/btnEditProfile" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilNewFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_large_large"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:orientation="horizontal"
+                android:textColorHint="@color/white"
+                app:boxBackgroundColor="@color/app_color"
+                app:boxCornerRadiusBottomEnd="@dimen/margin_large"
+                app:boxCornerRadiusBottomStart="@dimen/margin_large"
+                app:boxCornerRadiusTopEnd="@dimen/margin_large"
+                app:boxCornerRadiusTopStart="@dimen/margin_large"
+                app:hintEnabled="false"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNewFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint=""
+                    android:inputType="text"
+                    android:padding="@dimen/margin_standard"
+                    android:text=""
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilNewLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_large"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:orientation="horizontal"
+                android:textColorHint="@color/white"
+                app:boxBackgroundColor="@color/app_color"
+                app:hintEnabled="false"
+                app:layout_constraintTop_toBottomOf="@id/tilNewFirstName"
+                app:boxCornerRadiusBottomEnd="@dimen/margin_large"
+                app:boxCornerRadiusBottomStart="@dimen/margin_large"
+                app:boxCornerRadiusTopEnd="@dimen/margin_large"
+                app:boxCornerRadiusTopStart="@dimen/margin_large"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNewLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint=""
+                    android:inputType="text"
+                    android:padding="@dimen/margin_standard"
+                    android:text=""
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEditProfile"
+               android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:padding="@dimen/margin_small"
+                android:backgroundTint="@color/black"
+                android:text="Ozgertiw"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_standard"
+                app:cornerRadius="8dp"
+                app:layout_constraintTop_toBottomOf="@id/tilNewLastName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <RelativeLayout
+                android:id="@+id/rlShare"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"
+                app:layout_constraintTop_toBottomOf="@id/horizontalLine1">
+
+                <ImageView
+                    android:id="@+id/share"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:src="@drawable/paper_share" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_toEndOf="@id/share"
+                    android:text="Almasiw"
+                    android:textColor="@color/app_color"
+                    android:textSize="20sp"
+                    android:textStyle="italic" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlDeveloper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"
+                app:layout_constraintTop_toBottomOf="@id/rlShare">
+
+                <ImageView
+                    android:id="@+id/developer"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:src="@drawable/man" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_toEndOf="@id/developer"
+                    android:text="Islep shig'ushilar mennen bog'lanin"
+                    android:textColor="@color/app_color"
+                    android:textSize="20sp"
+                    android:textStyle="italic" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/rlLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.98"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="@dimen/margin_standard"
+                >
+
+                <ImageView
+                    android:id="@+id/ivLogout"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:src="@drawable/logout" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_toEndOf="@id/ivLogout"
+                    android:text="Shigiw"
+                    android:textColor="#C11F1F"
+                    android:textSize="20sp"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/loading_progress_bar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

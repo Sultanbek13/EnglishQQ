@@ -15,7 +15,7 @@ class StudyViewModel(private val contentHelper: ContentHelper) : ViewModel() {
 
     fun getStudyItem(typeId: String) {
         mutableThemeInfo.value = Resource.loading()
-        contentHelper.getListWords(typeId,
+        contentHelper.getStudyItem(typeId,
                 {
                     mutableThemeInfo.value = Resource.success(it)
                 },
