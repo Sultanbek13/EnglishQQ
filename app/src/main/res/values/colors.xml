@@ -12,4 +12,7 @@
     <color name="app_color">#FFD1DAFB</color>
     <color name="app_color_black">#FF2D2F31</color>
     <color name="app_color_other_text">#FF4E5051</color>
+    <color name="secondary_text_color">#D3201E1E</color>
+    <color name="line_color">#7A7E80</color>
+    <color name="green">#7CB342</color>
 </resources>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="400dp"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/app_color"
     app:behavior_hideable="false"
     app:behavior_skipCollapsed="false"
@@ -12,18 +12,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tvThemeName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_large_large"
-            android:layout_marginTop="@dimen/margin_standard"
-            android:text="Приветствие"
+            android:layout_marginTop="@dimen/margin_large"
+            android:fontFamily="@font/font_style"
             android:textColor="@color/app_color_black"
             android:textSize="@dimen/text_size_standard"
+            tools:text="Present simple"
             android:textStyle="bold" />
 
         <ProgressBar
@@ -39,41 +39,29 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <LinearLayout
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1"
-            >
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnStart"
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_standard"
-                android:backgroundTint="@color/black"
-                android:paddingHorizontal="48dp"
-                android:text="Baslaw"
-                android:textAllCaps="false"
-                android:textSize="@dimen/text_size_standard"
-                app:cornerRadius="8dp"
-                app:layout_constraintEnd_toEndOf="@id/tilPassword"
-                app:layout_constraintTop_toBottomOf="@id/tilPassword"
-                android:layout_weight="1"
-                android:layout_marginBottom="@dimen/margin_standard"
-                android:layout_marginStart="@dimen/margin_large_large"
-                android:layout_marginEnd="@dimen/margin_large_large"
-                />
-
-        </LinearLayout>
+            android:layout_marginStart="@dimen/margin_large_large"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:layout_marginEnd="@dimen/margin_large_large"
+            android:layout_marginBottom="@dimen/margin_standard"
+            android:backgroundTint="@color/black"
+            android:paddingHorizontal="@dimen/padding_middle"
+            android:text="@string/start"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_standard"
+            app:cornerRadius="@dimen/cv_btn_size"
+            app:layout_constraintTop_toBottomOf="@id/tilPassword" />
 
         <View
             android:id="@+id/horizontalLine1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="@dimen/margin_large_large"
+            android:layout_marginTop="@dimen/margin_standard"
             android:background="@color/app_color_black" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -82,20 +70,22 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_list_word"
-            />
+            tools:listitem="@layout/item_list_word" />
 
     </LinearLayout>
 
-    <com.airbnb.lottie.LottieAnimationView
+    <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/loading"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        app:lottie_rawRes="@raw/second_loading"
-        app:lottie_autoPlay="true"
+        style="@style/SpinKitView.Large.Circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="64dp"
-        app:lottie_loop="false"
+        app:SpinKit_Color="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
         />
 
 </FrameLayout>

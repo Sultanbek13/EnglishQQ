@@ -1,62 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <RelativeLayout
+        android:id="@+id/rlVideo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        app:layout_constraintDimensionRatio="5:3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.18"
-        android:layout_marginStart="@dimen/margin_large"
-        android:layout_marginEnd="@dimen/margin_large"
-        android:text=""
-        android:maxLines="3"
-        android:gravity="center"
-        android:textSize="@dimen/text_size_standard"
-        android:textColor="@color/app_color_black" />
+        android:layout_marginHorizontal="@dimen/margin_standard"
+        >
 
-    <VideoView
-        android:id="@+id/contentView"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.37"
-        android:layout_marginStart="@dimen/margin_standard"
-        android:layout_marginEnd="@dimen/margin_standard"
-        android:layout_marginTop="@dimen/margin_large_large"
-        android:layout_marginBottom="@dimen/margin_large_large"
-        android:foregroundGravity="center"/>
+        <VideoView
+            android:id="@+id/contentView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:foregroundGravity="center"
+            android:padding="@dimen/padding_middle" />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/loadingContent"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_margin="@dimen/margin_small"
-        app:lottie_rawRes="@raw/loading_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.4"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="false"
-        android:visibility="gone"
-        />
+    </RelativeLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewEnglishWord"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        app:layout_constraintTop_toBottomOf="@id/contentView"
+        app:layout_constraintTop_toBottomOf="@id/rlVideo"
         android:layout_marginStart="@dimen/margin_standard"
         android:layout_marginEnd="@dimen/margin_standard"
         android:layout_marginTop="@dimen/margin_large_large"
@@ -107,7 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:text="Salem!"
+                tools:text="Salem!"
                 android:gravity="center"
                 android:textSize="@dimen/text_size_standard"
                 android:textColor="#FF4E5051"

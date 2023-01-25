@@ -5,102 +5,103 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white">
 
-    <LinearLayout
-        android:id="@+id/llClose"
+    <RelativeLayout
+        android:id="@+id/actionBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:background="@color/app_color"
-        android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"
         >
 
         <ImageView
             android:id="@+id/iconClose"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_margin="@dimen/margin_standard"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginHorizontal="@dimen/margin_standard"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:padding="@dimen/margin_standard"
             android:src="@drawable/ic_baseline_close_24" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="6dp"
-            android:layout_marginStart="@dimen/margin_large_large"
-            android:layout_marginEnd="@dimen/margin_large_large"
-            android:layout_marginTop="@dimen/margin_standard"
-            android:layout_marginBottom="@dimen/margin_standard"
-            android:progressDrawable="@drawable/custom_progress_bar"
-            android:layout_gravity="center"
-            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/font_style"
+            android:padding="@dimen/padding_standard"
+            android:text="@string/englishqq_study"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_middle"
+            android:textStyle="bold" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
-    <androidx.viewpager.widget.ViewPager
+
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPagerStudy"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/llClose"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/actionBar"
+        app:layout_constraintBottom_toTopOf="@id/dotsIndicator"
+        android:layout_marginBottom="@dimen/margin_large"
         />
 
-    <com.airbnb.lottie.LottieAnimationView
+    <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/loading"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        app:lottie_rawRes="@raw/second_loading"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnClear"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_large"
-        android:layout_marginEnd="@dimen/margin_large"
-        android:backgroundTint="#7CB342"
-        android:padding="@dimen/margin_standard"
-        android:text="Tu'sinikli"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_standard"
-        app:cornerRadius="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/indicatorsContainer"
-        android:layout_marginBottom="@dimen/margin_standard"
-        android:visibility="gone"
-        />
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/winAnimation"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:visibility="gone"
-        app:lottie_rawRes="@raw/win_anim"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="false"
-        app:layout_constraintBottom_toTopOf="@id/indicatorsContainer"
-        app:layout_constraintEnd_toEndOf="@id/indicatorsContainer"
-        app:layout_constraintStart_toStartOf="@id/indicatorsContainer" />
-
-    <LinearLayout
+        style="@style/SpinKitView.Large.Circle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/indicatorsContainer"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="@id/btnClear"
-        app:layout_constraintEnd_toEndOf="@id/btnClear"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_gravity="center"
+        app:SpinKit_Color="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.97"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.35"
+        android:visibility="gone"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnUnderstandably"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_large_large"
+        android:layout_marginTop="@dimen/margin_standard"
+        android:layout_marginEnd="@dimen/margin_large_large"
+        android:layout_marginBottom="@dimen/margin_standard"
+        android:backgroundTint="@color/green"
+        android:paddingHorizontal="@dimen/padding_middle"
+        android:text="@string/tu_sinikli"
+        android:textAllCaps="false"
+        android:textSize="@dimen/text_size_standard"
+        app:cornerRadius="@dimen/cv_btn_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/dotsIndicator"
+        android:visibility="gone"
+        />
+
+    <nl.dionsegijn.konfetti.xml.KonfettiView
+        android:id="@+id/confettiView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+        android:id="@+id/dotsIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:dotsColor="@color/app_color"
+        app:dotsCornerRadius="@dimen/dots_corner_size"
+        app:dotsSize="@dimen/dots_size"
+        app:dotsSpacing="@dimen/dot_spacing_size"
+        app:dotsWidthFactor="2.5"
+        app:selectedDotColor="@color/secondary_text_color"
+        app:progressMode="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginVertical="@dimen/margin_large"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

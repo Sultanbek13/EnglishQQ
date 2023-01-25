@@ -11,10 +11,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/app_icon_round"
         android:supportsRtl="true"
-        android:name=".App"
+        android:name=".app.App"
         android:theme="@style/Theme.EnglishQQ">
-        <activity android:name=".MainActivity"
-            android:windowSoftInputMode="stateHidden|adjustPan" >
+        <activity android:name=".presentation.ui.MainActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:screenOrientation="portrait"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

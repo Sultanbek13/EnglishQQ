@@ -3,13 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white">
+    android:background="@color/white"
+    >
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/splashView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:lottie_rawRes="@raw/progress_bar"
+        app:lottie_rawRes="@raw/lottie_splash_owl"
         app:lottie_autoPlay="true"
         app:lottie_loop="false" />
 

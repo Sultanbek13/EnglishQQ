@@ -5,17 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".MainActivity">
+    tools:context=".presentation.ui.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="270dp"
         android:background="@color/app_color"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintCircleRadius="@dimen/margin_large"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/settingIcon"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -46,9 +45,8 @@
         android:layout_marginTop="@dimen/margin_large_large"
         android:layout_marginEnd="@dimen/margin_large"
         app:cardCornerRadius="@dimen/margin_large"
-        app:layout_constraintTop_toBottomOf="@id/settingIcon"
         app:layout_constraintBottom_toBottomOf="parent"
-        >
+        app:layout_constraintTop_toBottomOf="@id/settingIcon">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -64,7 +62,8 @@
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="@dimen/margin_large"
                 android:background="@color/app_color_black"
-                app:layout_constraintTop_toBottomOf="@id/btnEditProfile" />
+                app:layout_constraintTop_toBottomOf="@id/btnEditProfile"
+                />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilNewFirstName"
@@ -90,10 +89,10 @@
                     android:hint=""
                     android:inputType="text"
                     android:padding="@dimen/margin_standard"
-                    android:text=""
                     android:textAllCaps="true"
                     android:textColor="@color/white"
-                    android:textColorHint="@color/black" />
+                    android:textColorHint="@color/black"
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -107,13 +106,12 @@
                 android:orientation="horizontal"
                 android:textColorHint="@color/white"
                 app:boxBackgroundColor="@color/app_color"
-                app:hintEnabled="false"
-                app:layout_constraintTop_toBottomOf="@id/tilNewFirstName"
                 app:boxCornerRadiusBottomEnd="@dimen/margin_large"
                 app:boxCornerRadiusBottomStart="@dimen/margin_large"
                 app:boxCornerRadiusTopEnd="@dimen/margin_large"
                 app:boxCornerRadiusTopStart="@dimen/margin_large"
-                >
+                app:hintEnabled="false"
+                app:layout_constraintTop_toBottomOf="@id/tilNewFirstName">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etNewLastName"
@@ -131,87 +129,101 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEditProfile"
-               android:layout_width="100dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_large"
                 android:layout_marginEnd="@dimen/margin_large"
-                android:padding="@dimen/margin_small"
                 android:backgroundTint="@color/black"
-                android:text="Ozgertiw"
+                android:text="@string/change"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_standard"
                 app:cornerRadius="8dp"
-                app:layout_constraintTop_toBottomOf="@id/tilNewLastName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                />
+                app:layout_constraintTop_toBottomOf="@id/tilNewLastName" />
 
-            <RelativeLayout
-                android:id="@+id/rlShare"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvShare"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_large"
+                android:background="@color/app_color"
                 app:layout_constraintTop_toBottomOf="@id/horizontalLine1">
 
-                <ImageView
-                    android:id="@+id/share"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="@dimen/margin_large"
-                    android:src="@drawable/paper_share" />
+                <RelativeLayout
+                    android:id="@+id/rlShare"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginStart="@dimen/margin_large"
-                    android:layout_toEndOf="@id/share"
-                    android:text="Almasiw"
-                    android:textColor="@color/app_color"
-                    android:textSize="20sp"
-                    android:textStyle="italic" />
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/share"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="@dimen/margin_large"
+                        android:src="@drawable/paper_share" />
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="@dimen/margin_large"
+                        android:layout_toEndOf="@id/share"
+                        android:text="Almasiw"
+                        android:textColor="@color/app_color_black"
+                        android:textSize="20sp"
+                        android:textStyle="italic" />
 
-            <RelativeLayout
-                android:id="@+id/rlDeveloper"
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvDeveloper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_large"
-                app:layout_constraintTop_toBottomOf="@id/rlShare">
+                app:layout_constraintTop_toBottomOf="@id/cvShare"
+                android:background="@color/app_color"
+                >
 
-                <ImageView
-                    android:id="@+id/developer"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="@dimen/margin_large"
-                    android:src="@drawable/man" />
+                <RelativeLayout
+                    android:id="@+id/rlDeveloper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginStart="@dimen/margin_large"
-                    android:layout_toEndOf="@id/developer"
-                    android:text="Islep shig'ushilar mennen bog'lanin"
-                    android:textColor="@color/app_color"
-                    android:textSize="20sp"
-                    android:textStyle="italic" />
+                    <ImageView
+                        android:id="@+id/developer"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="@dimen/margin_large"
+                        android:src="@drawable/man" />
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="@dimen/margin_large"
+                        android:layout_toEndOf="@id/developer"
+                        android:text="@string/text_develop"
+                        android:textColor="@color/app_color_black"
+                        android:textSize="20sp"
+                        android:textStyle="italic" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
 
             <LinearLayout
                 android:id="@+id/rlLogout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_standard"
                 android:layout_marginTop="@dimen/margin_large"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.98"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_margin="@dimen/margin_standard"
-                >
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.98">
 
                 <ImageView
                     android:id="@+id/ivLogout"
@@ -226,7 +238,7 @@
                     android:layout_centerInParent="true"
                     android:layout_marginStart="@dimen/margin_large"
                     android:layout_toEndOf="@id/ivLogout"
-                    android:text="Shigiw"
+                    android:text="Shig'iw"
                     android:textColor="#C11F1F"
                     android:textSize="20sp"
                     android:textStyle="italic" />
@@ -237,17 +249,19 @@
 
     </androidx.cardview.widget.CardView>
 
-    <com.airbnb.lottie.LottieAnimationView
+    <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/loading"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/SpinKitView.Large.Circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:SpinKit_Color="@color/black"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="false"
-        app:lottie_rawRes="@raw/loading_progress_bar" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.35"
+        android:visibility="gone"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

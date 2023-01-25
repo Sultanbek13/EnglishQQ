@@ -7,22 +7,32 @@
 
     <fragment
         android:id="@+id/signInFragment"
-        android:name="com.example.englishqq.ui.auth.signin.SignInFragment"
+        android:name="com.example.englishqq.presentation.ui.source.auth.signin.SignInFragment"
         android:label="SignInFragment"
         tools:layout="@layout/fragment_sign_in"
         >
         <action
             android:id="@+id/action_signInFragment_to_mainFragment"
             app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             />
         <action
             android:id="@+id/action_signInFragment_to_signUpFragment"
-            app:destination="@id/signUpFragment" />
+            app:destination="@id/signUpFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+
     </fragment>
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.englishqq.ui.main.MainFragment"
+        android:name="com.example.englishqq.presentation.ui.main.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main"
         >
@@ -35,23 +45,29 @@
             />
         <action
             android:id="@+id/action_mainFragment_to_checkListDialog"
-            app:destination="@id/checkListDialog" />
+            app:destination="@id/checkListDialog"
+            />
 
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.englishqq.ui.auth.signup.SignUpFragment"
+        android:name="com.example.englishqq.presentation.ui.source.auth.signup.SignUpFragment"
         android:label="SignUpFragment"
         tools:layout="@layout/fragment_sign_up"
         >
         <action
             android:id="@+id/action_signUpFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
     </fragment>
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.englishqq.ui.splash.SplashFragment"
+        android:name="com.example.englishqq.presentation.ui.source.splash.SplashFragment"
         android:label="SplashFragment"
         tools:layout="@layout/fragment_splash"
         >
@@ -61,6 +77,10 @@
             app:popUpToInclusive="true"
             app:launchSingleTop="true"
             app:popUpTo="@id/navigation_to_main"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             />
 
         <action
@@ -69,14 +89,19 @@
             app:popUpToInclusive="true"
             app:launchSingleTop="true"
             app:popUpTo="@id/navigation_to_main"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             />
     </fragment>
     <fragment
         android:id="@+id/studyFragment"
-        android:name="com.example.englishqq.ui.study.StudyFragment"
+        android:name="com.example.englishqq.presentation.ui.study.StudyFragment"
         android:label="StudyFragment"
         tools:layout="@layout/fragment_study"
         >
+
         <argument
             android:name="themeId"
             app:argType="string" />
@@ -92,7 +117,7 @@
     </fragment>
     <dialog
         android:id="@+id/checkListDialog"
-        android:name="com.example.englishqq.ui.dialog.CheckListDialog"
+        android:name="com.example.englishqq.presentation.ui.dialog.CheckListDialog"
         android:label="CheckListDialog"
         tools:layout="@layout/dialog_check_list"
         >
@@ -106,12 +131,17 @@
             app:argType="string" />
         <action
             android:id="@+id/action_checkListDialog_to_studyFragment"
-            app:destination="@id/studyFragment" />
+            app:destination="@id/studyFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
 
     </dialog>
     <fragment
         android:id="@+id/testFragment"
-        android:name="com.example.englishqq.ui.test.TestFragment"
+        android:name="com.example.englishqq.presentation.ui.test.TestFragment"
         android:label="TestFragment"
         tools:layout="@layout/fragment_test"
         >
@@ -129,13 +159,23 @@
     </fragment>
     <fragment
         android:id="@+id/finishFragment"
-        android:name="com.example.englishqq.ui.finish.FinishFragment"
+        android:name="com.example.englishqq.presentation.ui.finish.FinishFragment"
         android:label="FinishFragment"
         tools:layout="@layout/fragment_finish"
         >
         <action
             android:id="@+id/action_finishFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+
+        <argument
+            android:name="themeName"
+            app:argType="string" />
+
     </fragment>
 
 </navigation>
