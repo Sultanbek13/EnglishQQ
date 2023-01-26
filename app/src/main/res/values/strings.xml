@@ -27,4 +27,7 @@
     <string name="basqa_bolimge_o_tiw">Basqa bolimge o\'tiw</string>
     <string name="o_zinizdin_pikirinizdi_qaldirip_ketin">O\'zinizdin pikirinizdi qaldirip ketin</string>
     <string name="jiberu">Jiberu</string>
+    <string name="o_zgertu">O\'zgertu</string>
+    <string name="almasiw">Almasiw</string>
+    <string name="logout">Logout</string>
 </resources>

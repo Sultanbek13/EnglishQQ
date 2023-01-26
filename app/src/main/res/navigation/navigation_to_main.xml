@@ -114,6 +114,7 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             />
+        <argument android:name="themeName" />
     </fragment>
     <dialog
         android:id="@+id/checkListDialog"
@@ -147,6 +148,9 @@
         >
         <argument
             android:name="testId"
+            app:argType="string" />
+        <argument
+            android:name="themeName"
             app:argType="string" />
         <action
             android:id="@+id/action_testFragment_to_finishFragment"

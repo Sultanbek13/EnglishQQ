@@ -1,6 +1,5 @@
 package com.example.englishqq.data.model
 
-
 data class CategoryData(
         val typeId: String = "",
         val themeName: String = "",

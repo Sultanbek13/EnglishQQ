@@ -30,6 +30,8 @@ class StudyFragment : Fragment(R.layout.fragment_study) {
 
         binding.viewPagerStudy.adapter = adapter
 
+        binding.tvThemeName.text = args.themeName
+
         setObservers()
         setBtnUnderstandablyAndAnim()
 
@@ -40,7 +42,8 @@ class StudyFragment : Fragment(R.layout.fragment_study) {
         binding.btnUnderstandably.setOnClickListener {
             findNavController().navigate(
                 StudyFragmentDirections.actionStudyFragmentToTestFragment(
-                    args.themeId
+                    args.themeId,
+                    args.themeName
                 )
             )
         }

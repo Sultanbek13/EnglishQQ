@@ -11,8 +11,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.englishqq.data.model.ContentData
 import com.example.englishqq.databinding.ItemStudyBinding
-import com.squareup.okhttp.internal.Platform.get
-
 
 class StudyAdapter(private val context: Context) : RecyclerView.Adapter<StudyAdapter.ViewHolder>() {
 

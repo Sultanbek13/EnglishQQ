@@ -30,6 +30,8 @@ class TestFragment : Fragment(R.layout.fragment_test) {
 
         binding.viewPagerTest.adapter = adapter
 
+        binding.tvThemeName.text = args.themeName
+
         binding.btnNext.setOnClickListener {
             findNavController().navigate(TestFragmentDirections.actionTestFragmentToFinishFragment(args.testId))
         }

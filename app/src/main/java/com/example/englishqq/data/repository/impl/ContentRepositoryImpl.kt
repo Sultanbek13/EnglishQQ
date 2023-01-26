@@ -1,11 +1,8 @@
 package com.example.englishqq.data.repository.impl
 
-import android.util.Log
 import com.example.englishqq.data.model.CategoryData
 import com.example.englishqq.data.model.ContentData
 import com.example.englishqq.data.model.TestData
-import com.example.englishqq.data.model.UserData
-import com.example.englishqq.data.remote.AuthHelper
 import com.example.englishqq.data.remote.ContentHelper
 import com.example.englishqq.data.repository.ContentRepository
 

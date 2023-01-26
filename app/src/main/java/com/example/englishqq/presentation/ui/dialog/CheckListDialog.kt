@@ -52,7 +52,8 @@ class CheckListDialog : BottomSheetDialogFragment() {
         binding.btnStart.setOnClickListener {
             findNavController().navigate(
                 CheckListDialogDirections.actionCheckListDialogToStudyFragment(
-                    navArgs.typeId
+                    navArgs.typeId,
+                    navArgs.themeName
                 )
             )
         }

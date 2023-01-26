@@ -1,7 +1,6 @@
 package com.example.englishqq.utils
 
 import android.content.Context
-import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.viewpager2.widget.ViewPager2

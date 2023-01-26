@@ -1,14 +1,13 @@
-package com.example.englishqq.presentation.ui.home.impl
+package com.example.englishqq.presentation.ui.main.home.impl
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.englishqq.data.model.CategoryData
 import com.example.englishqq.data.repository.AuthRepository
 import com.example.englishqq.data.repository.ContentRepository
-import com.example.englishqq.presentation.ui.home.HomeViewModel
+import com.example.englishqq.presentation.ui.main.home.HomeViewModel
 import com.example.englishqq.utils.Resource
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 
 class HomeViewModelImpl(

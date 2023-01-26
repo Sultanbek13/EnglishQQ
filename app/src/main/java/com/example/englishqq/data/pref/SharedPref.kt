@@ -14,4 +14,8 @@ interface SharedPref {
 
     fun getUserEmail(): String
 
+    fun saveLastName(lastName: String)
+
+    fun getLastName(): String
+
 }

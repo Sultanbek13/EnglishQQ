@@ -22,6 +22,13 @@ interface AuthRepository {
         onFailure: (msg: String?) -> Unit
     )
 
+    suspend fun editProfile(
+        newFirstName: String,
+        newLastName: String,
+        onSuccess: () -> Unit,
+        onFailure: (msg: String?) -> Unit
+    )
+
     suspend fun setStateAuth(state: Boolean)
 
     suspend fun getStateAuth(): Boolean
@@ -33,5 +40,9 @@ interface AuthRepository {
     suspend fun saveUserEmail(userEmail: String)
 
     suspend fun getUserEmail(): String
+
+    suspend fun saveLastName(lastName: String)
+
+    suspend fun getLastName(): String
 
 }

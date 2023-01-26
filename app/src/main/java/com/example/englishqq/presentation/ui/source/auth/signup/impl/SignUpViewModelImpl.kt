@@ -40,6 +40,7 @@ class SignUpViewModelImpl(private val authRepository: AuthRepository) : SignUpVi
                     viewModelScope.launch {
                         signUpFlow.emit(Resource.success(Unit))
                         authRepository.saveUserName(firstName)
+                        authRepository.saveLastName(lastName)
                         authRepository.setStateAuth(true)
                     }
                 },

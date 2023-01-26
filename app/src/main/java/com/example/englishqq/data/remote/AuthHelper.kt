@@ -59,13 +59,17 @@ class AuthHelper(private val auth: FirebaseAuth, private val db: FirebaseFiresto
     }
 
     fun editProfile(
-        userData: UserData,
-        onSuccess: (userData: UserData) -> Unit,
+        newFirstName: String,
+        newLastName: String,
+        onSuccess: () -> Unit,
         onFailure: (msg: String?) -> Unit
     ) {
-        db.collection(N.USER).document(userData.uid).set(userData)
+        val map: MutableMap<String, Any> = HashMap()
+        map["firstName"] = newFirstName
+        map["lastName"] = newLastName
+        db.collection(N.USER).document(auth.currentUser!!.uid).update(map)
             .addOnSuccessListener {
-                onSuccess.invoke(userData)
+                onSuccess.invoke()
             }
             .addOnFailureListener {
                 onFailure.invoke(it.localizedMessage)

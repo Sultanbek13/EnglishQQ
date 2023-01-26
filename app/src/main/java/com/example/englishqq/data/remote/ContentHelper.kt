@@ -1,6 +1,5 @@
 package com.example.englishqq.data.remote
 
-import android.util.Log
 import com.example.englishqq.data.model.CategoryData
 import com.example.englishqq.data.model.ContentData
 import com.example.englishqq.data.model.TestData
@@ -10,8 +9,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class ContentHelper(private val auth: FirebaseAuth, private val db: FirebaseFirestore) {
 
-    fun getListCategory(onSuccess: (categoryData: List<CategoryData?>) -> Unit,
-                     onFailure: (msg: String?) -> Unit) {
+    fun getListCategory(
+        onSuccess: (categoryData: List<CategoryData?>) -> Unit,
+        onFailure: (msg: String?) -> Unit
+    ) {
         db.collection(N.MATERIAL).get()
             .addOnSuccessListener {
                 val res = it.documents.map { doc ->
@@ -24,36 +25,51 @@ class ContentHelper(private val auth: FirebaseAuth, private val db: FirebaseFire
             }
     }
 
-    fun getListContent(typeId: String?, onSuccess: (contentData: List<ContentData>) -> Unit, onFailure: (msg: String?) -> Unit) {
+    fun getListContent(
+        typeId: String?,
+        onSuccess: (contentData: List<ContentData>) -> Unit,
+        onFailure: (msg: String?) -> Unit
+    ) {
         db.collection(N.MATERIAL).document(typeId!!).collection("currentType").get()
-                .addOnSuccessListener {
-                    val res = it.documents.map { doc->
-                        doc.toObject(ContentData::class.java)!!
-                    }
-                    onSuccess.invoke(res)
+            .addOnSuccessListener {
+                val res = it.documents.map { doc ->
+                    doc.toObject(ContentData::class.java)!!
                 }
-                .addOnFailureListener {
-                    onFailure.invoke(it.localizedMessage)
-                }
+                onSuccess.invoke(res)
+            }
+            .addOnFailureListener {
+                onFailure.invoke(it.localizedMessage)
+            }
     }
 
-    fun getListTestContent(typeId: String?, onSuccess: (testData: List<TestData>) -> Unit, onFailure: (msg: String?) -> Unit) {
+    fun getListTestContent(
+        typeId: String?,
+        onSuccess: (testData: List<TestData>) -> Unit,
+        onFailure: (msg: String?) -> Unit
+    ) {
         db.collection(N.MATERIAL).document(typeId!!).collection("currentTest").get()
-                .addOnSuccessListener {
-                    val res = it.documents.map { doc->
-                        doc.toObject(TestData::class.java)!!
-                    }
-                    onSuccess.invoke(res)
+            .addOnSuccessListener {
+                val res = it.documents.map { doc ->
+                    doc.toObject(TestData::class.java)!!
                 }
-                .addOnFailureListener {
-                    onFailure.invoke(it.localizedMessage)
-                }
+                onSuccess.invoke(res)
+            }
+            .addOnFailureListener {
+                onFailure.invoke(it.localizedMessage)
+            }
     }
 
-    fun saveFeedbackFromUser(typeId: String, userEmail: String, feedback: String, onSuccess: () -> Unit, onFailure: (msg: String?) -> Unit) {
+    fun saveFeedbackFromUser(
+        typeId: String,
+        userEmail: String,
+        feedback: String,
+        onSuccess: () -> Unit,
+        onFailure: (msg: String?) -> Unit
+    ) {
         val map: MutableMap<String, Any> = HashMap()
         map["feedback"] = feedback
-        db.collection(N.MATERIAL).document(typeId).collection(N.FEEDBACK).document(userEmail).set(map)
+        db.collection(N.MATERIAL).document(typeId).collection(N.FEEDBACK).document(userEmail)
+            .set(map)
             .addOnSuccessListener {
                 onSuccess.invoke()
             }
@@ -61,5 +77,4 @@ class ContentHelper(private val auth: FirebaseAuth, private val db: FirebaseFire
                 onFailure.invoke(it.message)
             }
     }
-
 }

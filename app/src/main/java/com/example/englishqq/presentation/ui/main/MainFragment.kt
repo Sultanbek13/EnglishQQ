@@ -7,11 +7,9 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.englishqq.R
-import com.example.englishqq.data.pref.impl.SharedPrefImpl
 import com.example.englishqq.databinding.FragmentMainBinding
-import com.example.englishqq.presentation.ui.about.AboutFragment
-import com.example.englishqq.presentation.ui.home.HomeFragment
-import org.koin.android.ext.android.inject
+import com.example.englishqq.presentation.ui.main.profile.ProfileFragment
+import com.example.englishqq.presentation.ui.main.home.HomeFragment
 
 class MainFragment : Fragment(R.layout.fragment_main) {
 
@@ -24,8 +22,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         binding = FragmentMainBinding.bind(view)
         navController = Navigation.findNavController(requireActivity(), R.id.fragmentContainer)
 
-        binding.bnv.add(MeowBottomNavigation.Model(1, R.drawable.home))
-        binding.bnv.add(MeowBottomNavigation.Model(2, R.drawable.settings))
+        binding.bnv.add(MeowBottomNavigation.Model(1, R.drawable.ic_home))
+        binding.bnv.add(MeowBottomNavigation.Model(2, R.drawable.ic_settings))
 
         binding.bnv.show(1, true)
         loadFragment(HomeFragment())
@@ -36,7 +34,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                     loadFragment(HomeFragment())
                 }
                 2 -> {
-                    loadFragment(AboutFragment())
+                    loadFragment(ProfileFragment())
                 }
             }
         }

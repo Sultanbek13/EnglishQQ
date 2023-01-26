@@ -3,7 +3,6 @@ package com.example.englishqq.data.repository.impl
 import com.example.englishqq.data.pref.SharedPref
 import com.example.englishqq.data.remote.AuthHelper
 import com.example.englishqq.data.repository.AuthRepository
-import com.example.englishqq.utils.Resource
 
 class AuthRepositoryImpl(
     private val sharedPref: SharedPref,
@@ -58,6 +57,24 @@ class AuthRepositoryImpl(
             })
     }
 
+    override suspend fun editProfile(
+        newFirstName: String,
+        newLastName: String,
+        onSuccess: () -> Unit,
+        onFailure: (msg: String?) -> Unit
+    ) {
+        authHelper.editProfile(
+            newFirstName,
+            newLastName,
+            {
+                onSuccess.invoke()
+            },
+            {
+                onFailure.invoke(it)
+            }
+        )
+    }
+
     override suspend fun setStateAuth(state: Boolean) = sharedPref.setStateAuth(state)
 
     override suspend fun getStateAuth(): Boolean = sharedPref.getStateAuth()
@@ -69,4 +86,8 @@ class AuthRepositoryImpl(
     override suspend fun saveUserEmail(userEmail: String) = sharedPref.saveUserEmail(userEmail)
 
     override suspend fun getUserEmail(): String = sharedPref.getUserEmail()
+
+    override suspend fun saveLastName(lastName: String) = sharedPref.saveLastName(lastName)
+
+    override suspend fun getLastName(): String = sharedPref.getLastName()
 }

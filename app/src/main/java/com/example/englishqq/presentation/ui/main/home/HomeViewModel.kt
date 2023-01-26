@@ -1,4 +1,4 @@
-package com.example.englishqq.presentation.ui.home
+package com.example.englishqq.presentation.ui.main.home
 
 import com.example.englishqq.data.model.CategoryData
 import com.example.englishqq.utils.Resource
