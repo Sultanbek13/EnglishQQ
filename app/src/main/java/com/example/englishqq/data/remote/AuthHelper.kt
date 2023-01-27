@@ -58,6 +58,20 @@ class AuthHelper(private val auth: FirebaseAuth, private val db: FirebaseFiresto
             }
     }
 
+    fun getUserData(
+        onSuccess: (userData: UserData?) -> Unit,
+        onFailure: (msg: String?) -> Unit
+    ) {
+        db.collection(N.USER).document(auth.currentUser!!.uid).get()
+            .addOnSuccessListener {
+                val res = it.toObject(UserData::class.java)
+                onSuccess.invoke(res)
+            }
+            .addOnFailureListener {
+                onFailure.invoke(it.message)
+            }
+    }
+
     fun editProfile(
         newFirstName: String,
         newLastName: String,

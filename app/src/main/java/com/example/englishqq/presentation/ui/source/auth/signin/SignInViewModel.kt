@@ -9,4 +9,6 @@ interface SignInViewModel {
 
     fun signIn(email: String, password: String)
 
+    fun saveUserInfoAndSignIn()
+
 }

@@ -113,7 +113,7 @@
         android:layout_marginVertical="@dimen/margin_large"
         android:backgroundTint="@color/black"
         android:paddingHorizontal="@dimen/padding_middle"
-        android:text="@string/next"
+        android:text="@string/sign_in"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_standard"

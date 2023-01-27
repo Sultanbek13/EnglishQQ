@@ -1,5 +1,6 @@
 package com.example.englishqq.data.repository.impl
 
+import com.example.englishqq.data.model.UserData
 import com.example.englishqq.data.pref.SharedPref
 import com.example.englishqq.data.remote.AuthHelper
 import com.example.englishqq.data.repository.AuthRepository
@@ -55,6 +56,20 @@ class AuthRepositoryImpl(
             {
                 onFailure.invoke(it)
             })
+    }
+
+    override suspend fun getUserData(
+        onSuccess: (userData: UserData?) -> Unit,
+        onFailure: (msg: String?) -> Unit
+    ) {
+        authHelper.getUserData(
+            {
+                onSuccess.invoke(it)
+            },
+            {
+                onFailure.invoke(it)
+            }
+        )
     }
 
     override suspend fun editProfile(

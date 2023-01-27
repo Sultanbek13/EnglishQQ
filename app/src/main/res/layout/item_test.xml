@@ -133,14 +133,16 @@
         android:layout_marginVertical="@dimen/margin_large"
         android:backgroundTint="@color/black"
         android:paddingHorizontal="@dimen/padding_middle"
-        android:text="@string/juabin_bilew"
+        android:text="@string/check"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_standard"
         app:cornerRadius="@dimen/rd_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardViewInput" />
+        app:layout_constraintTop_toBottomOf="@id/cardViewInput"
+        android:fontFamily="@font/font_style"
+        />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/arrow"

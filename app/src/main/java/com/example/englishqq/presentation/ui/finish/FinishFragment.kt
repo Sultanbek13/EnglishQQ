@@ -1,7 +1,7 @@
 package com.example.englishqq.presentation.ui.finish
 
+import android.animation.Animator
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -11,6 +11,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.englishqq.R
 import com.example.englishqq.databinding.FragmentFinishBinding
 import com.example.englishqq.presentation.ui.finish.impl.FinishViewModelImpl
+import com.example.englishqq.utils.AnimListener
 import com.example.englishqq.utils.ResourceState
 import com.example.englishqq.utils.loading
 import com.example.englishqq.utils.toast
@@ -27,20 +28,26 @@ class FinishFragment : Fragment(R.layout.fragment_finish) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.cardViewReturnHome.setOnClickListener {
-            findNavController().navigate(R.id.action_finishFragment_to_mainFragment)
-        }
-
-        setObserver()
-
         binding.apply {
+
+            cardViewReturnHome.setOnClickListener {
+                findNavController().navigate(R.id.action_finishFragment_to_mainFragment)
+            }
+
+            setObserver()
+
+            animManWithFlag.addAnimatorListener(object : AnimListener {
+                override fun onAnimationEnd(p0: Animator?) {
+                    animManWithFlag.playAnimation()
+                }
+            })
+
             btnSendFeedback.setOnClickListener {
                 if (etFeedback.text.isNullOrEmpty()) {
-                    toast(requireContext(), "Pikirinizdi qaldirip ketin :)")
+                    toast(requireContext(), getString(R.string.write_something_please))
                 } else {
                     val feedback = etFeedback.text.toString()
                     saveFeedback(feedback)
-                    Log.d("TTT", "Clicked send !!")
                     etFeedback.text?.clear()
                 }
             }

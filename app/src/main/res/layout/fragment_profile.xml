@@ -129,7 +129,7 @@
                 android:backgroundTint="@color/black"
                 android:fontFamily="@font/font_style"
                 android:paddingHorizontal="@dimen/padding_middle"
-                android:text="@string/o_zgertu"
+                android:text="@string/change"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_standard"

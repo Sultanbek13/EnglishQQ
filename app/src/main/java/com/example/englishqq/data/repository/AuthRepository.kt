@@ -1,5 +1,7 @@
 package com.example.englishqq.data.repository
 
+import com.example.englishqq.data.model.UserData
+
 interface AuthRepository {
 
     suspend fun signIn(
@@ -19,6 +21,11 @@ interface AuthRepository {
         firstName: String,
         lastName: String,
         onSuccess: () -> Unit,
+        onFailure: (msg: String?) -> Unit
+    )
+
+    suspend fun getUserData(
+        onSuccess: (userData: UserData?) -> Unit,
         onFailure: (msg: String?) -> Unit
     )
 

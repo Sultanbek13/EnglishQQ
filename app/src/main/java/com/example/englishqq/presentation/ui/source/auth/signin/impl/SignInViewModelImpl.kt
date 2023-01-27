@@ -23,8 +23,29 @@ class SignInViewModelImpl(private val authRepository: AuthRepository) : SignInVi
             authRepository.signIn(email, password,
                 {
                     viewModelScope.launch {
-                        signInFlow.emit(Resource.success(null))
-                        authRepository.setStateAuth(true)
+                        saveUserInfoAndSignIn()
+                    }
+                },
+                {
+                    viewModelScope.launch {
+                        signInFlow.emit(Resource.error(it))
+                    }
+                }
+            )
+        }
+    }
+
+    override fun saveUserInfoAndSignIn() {
+        viewModelScope.launch {
+            authRepository.getUserData(
+                {
+                    viewModelScope.launch {
+                        if (it != null) {
+                            authRepository.saveUserName(it.firstName)
+                            authRepository.saveLastName(it.lastName)
+                            authRepository.setStateAuth(true)
+                            signInFlow.emit(Resource.success(null))
+                        }
                     }
                 },
                 {

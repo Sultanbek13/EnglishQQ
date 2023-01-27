@@ -1,9 +1,11 @@
 package com.example.englishqq.utils
 
 import android.content.Context
+import android.view.animation.Animation
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.viewpager2.widget.ViewPager2
+import com.airbnb.lottie.LottieAnimationView
 import com.github.ybq.android.spinkit.SpinKitView
 import com.github.ybq.android.spinkit.sprite.Sprite
 import com.github.ybq.android.spinkit.style.Pulse
