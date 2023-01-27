@@ -21,6 +21,7 @@
         >
 
         <LinearLayout
+            android:id="@+id/llCategory"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
@@ -80,6 +81,19 @@
                 />
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvPrevention"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/prevention"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            android:fontFamily="@font/font_style"
+            android:textSize="@dimen/text_size_small"
+            android:visibility="gone"
+            />
 
     </androidx.cardview.widget.CardView>
 

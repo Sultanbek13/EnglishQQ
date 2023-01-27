@@ -16,4 +16,5 @@
     <color name="line_color">#7A7E80</color>
     <color name="green">#7CB342</color>
     <color name="red">#C12525</color>
+    <color name="not_item_category_color">#757C80</color>
 </resources>

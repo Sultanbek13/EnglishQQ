@@ -16,22 +16,33 @@
     </style>
 
     <style name="AlertDialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
-        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
         <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
         <item name="buttonBarNeutralButtonStyle">@style/NeutralButtonStyle</item>
+        <item name="android:windowTitleStyle">@style/AlertDialogTitle</item>
+        <item name="android:colorBackground">@color/app_color</item>
     </style>
 
-    <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
-        <item name="android:textColor">@color/app_color</item>
+    <style name="AlertDialogTitle" parent="@android:style/TextAppearance.Holo.DialogWindowTitle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/font_style</item>
+    </style>
+
+
+    <style name="AlertDialogMessage" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/font_style</item>
     </style>
 
     <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
-        <item name="android:textColor">#000</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/font_style</item>
     </style>
 
     <style name="NeutralButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
-        <item name="android:textColor">#000</item>
+        <item name="android:textColor">@color/secondary_text_color</item>
+        <item name="fontFamily">@font/font_style</item>
     </style>
 
     <style name="TextInputLayoutStyle">

@@ -2,6 +2,7 @@ package com.example.englishqq.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -23,15 +24,23 @@ class HomeAdapter : ListAdapter<CategoryData, HomeAdapter.ViewHolder>(HomeAdapte
 
         init {
             binding.root.setOnClickListener {
-                onClickListener?.invoke(
-                    getItem(absoluteAdapterPosition).typeId,
-                    getItem(absoluteAdapterPosition).themeName
-                )
+                if (Integer.parseInt(getItem(absoluteAdapterPosition).count) > 1) {
+                    onClickListener?.invoke(
+                        getItem(absoluteAdapterPosition).typeId,
+                        getItem(absoluteAdapterPosition).themeName
+                    )
+                }
             }
         }
 
         fun bind() {
             binding.apply {
+
+                if (Integer.parseInt(getItem(absoluteAdapterPosition).count) < 10) {
+                    binding.llCategory.setBackgroundResource(R.color.not_item_category_color)
+                    tvPrevention.isVisible = true
+                }
+
                 themeName.text = getItem(absoluteAdapterPosition).themeName
 
                 Glide
@@ -39,7 +48,7 @@ class HomeAdapter : ListAdapter<CategoryData, HomeAdapter.ViewHolder>(HomeAdapte
                     .load(getItem(absoluteAdapterPosition).imageUrl)
                     .into(binding.themeImage)
 
-                step.text = "1/${getItem(absoluteAdapterPosition).count}"
+                step.text = getItem(absoluteAdapterPosition).count
             }
         }
     }
