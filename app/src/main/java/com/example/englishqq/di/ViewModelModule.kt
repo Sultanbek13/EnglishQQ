@@ -1,6 +1,6 @@
 package com.example.englishqq.di
 
-import com.example.englishqq.presentation.ui.main.profile.impl.ProfileViewModelImpl
+import com.example.englishqq.presentation.ui.main.setting.impl.SettingViewModelImpl
 import com.example.englishqq.presentation.ui.dialog.impl.DialogViewModelImpl
 import com.example.englishqq.presentation.ui.finish.impl.FinishViewModelImpl
 import com.example.englishqq.presentation.ui.main.home.impl.HomeViewModelImpl
@@ -21,5 +21,5 @@ val viewModelModule = module {
     viewModel { StudyViewModelImpl(get()) }
     viewModel { TestViewModelImpl(get()) }
     viewModel { FinishViewModelImpl(get(), get()) }
-    viewModel { ProfileViewModelImpl(get()) }
+    viewModel { SettingViewModelImpl(get()) }
 }

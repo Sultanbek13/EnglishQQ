@@ -8,7 +8,7 @@ import androidx.navigation.Navigation
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.example.englishqq.R
 import com.example.englishqq.databinding.FragmentMainBinding
-import com.example.englishqq.presentation.ui.main.profile.ProfileFragment
+import com.example.englishqq.presentation.ui.main.setting.SettingFragment
 import com.example.englishqq.presentation.ui.main.home.HomeFragment
 
 class MainFragment : Fragment(R.layout.fragment_main) {
@@ -34,7 +34,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                     loadFragment(HomeFragment())
                 }
                 2 -> {
-                    loadFragment(ProfileFragment())
+                    loadFragment(SettingFragment())
                 }
             }
         }

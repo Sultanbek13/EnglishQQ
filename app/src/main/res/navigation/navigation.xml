@@ -13,8 +13,8 @@
 
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.example.englishqq.presentation.ui.main.profile.ProfileFragment"
+        android:name="com.example.englishqq.presentation.ui.main.setting.SettingFragment"
         android:label="AboutFragment"
-        tools:layout="@layout/fragment_profile"/>
+        tools:layout="@layout/fragment_setting"/>
 
 </navigation>

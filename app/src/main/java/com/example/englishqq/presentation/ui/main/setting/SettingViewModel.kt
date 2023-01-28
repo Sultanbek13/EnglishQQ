@@ -1,11 +1,11 @@
-package com.example.englishqq.presentation.ui.main.profile
+package com.example.englishqq.presentation.ui.main.setting
 
 import android.content.Context
 import android.content.Intent
 import com.example.englishqq.utils.Resource
 import kotlinx.coroutines.flow.SharedFlow
 
-interface ProfileViewModel {
+interface SettingViewModel {
 
     val editProfileFlow: SharedFlow<Resource<Unit>>
 

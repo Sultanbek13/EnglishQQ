@@ -1,4 +1,4 @@
-package com.example.englishqq.presentation.ui.main.profile
+package com.example.englishqq.presentation.ui.main.setting
 
 import android.os.Bundle
 import android.view.View
@@ -8,8 +8,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.englishqq.R
-import com.example.englishqq.databinding.FragmentProfileBinding
-import com.example.englishqq.presentation.ui.main.profile.impl.ProfileViewModelImpl
+import com.example.englishqq.databinding.FragmentSettingBinding
+import com.example.englishqq.presentation.ui.main.setting.impl.SettingViewModelImpl
 import com.example.englishqq.utils.ResourceState
 import com.example.englishqq.utils.loading
 import com.example.englishqq.utils.toast
@@ -17,11 +17,10 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+class SettingFragment : Fragment(R.layout.fragment_setting) {
 
-class ProfileFragment : Fragment(R.layout.fragment_profile) {
-
-    private val binding: FragmentProfileBinding by viewBinding()
-    private val viewModel: ProfileViewModelImpl by viewModel()
+    private val binding: FragmentSettingBinding by viewBinding()
+    private val viewModel: SettingViewModelImpl by viewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

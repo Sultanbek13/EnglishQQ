@@ -1,4 +1,4 @@
-package com.example.englishqq.presentation.ui.main.profile.impl
+package com.example.englishqq.presentation.ui.main.setting.impl
 
 import android.content.Context
 import android.content.Intent
@@ -10,13 +10,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.englishqq.BuildConfig
 import com.example.englishqq.data.repository.AuthRepository
-import com.example.englishqq.presentation.ui.main.profile.ProfileViewModel
+import com.example.englishqq.presentation.ui.main.setting.SettingViewModel
 import com.example.englishqq.utils.Resource
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 
-class ProfileViewModelImpl(private val authRepository: AuthRepository) : ProfileViewModel,
+class SettingViewModelImpl(private val authRepository: AuthRepository) : SettingViewModel,
     ViewModel() {
 
     override val editProfileFlow: MutableSharedFlow<Resource<Unit>> = MutableSharedFlow()

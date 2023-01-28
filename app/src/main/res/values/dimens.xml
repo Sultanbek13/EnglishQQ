@@ -10,11 +10,12 @@
     <dimen name="el_standard">12dp</dimen>
     <dimen name="cv_standard_size">32dp</dimen>
     <dimen name="text_size_small">12sp</dimen>
-    <dimen name="text_size_standard">16sp</dimen>
-    <dimen name="text_size_middle">24sp</dimen>
-    <dimen name="text_size_large">32sp</dimen>
+    <dimen name="text_size_standard">12sp</dimen>
+    <dimen name="text_size_middle">18sp</dimen>
+    <dimen name="text_size_large">28sp</dimen>
     <dimen name="cv_btn_size">8dp</dimen>
     <dimen name="dot_spacing_size">4dp</dimen>
     <dimen name="dots_size">8dp</dimen>
     <dimen name="dots_corner_size">12dp</dimen>
+    <dimen name="text_size_large_large">54sp</dimen>
 </resources>

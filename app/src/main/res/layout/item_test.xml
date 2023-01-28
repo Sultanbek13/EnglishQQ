@@ -42,15 +42,13 @@
 
     <RelativeLayout
         android:id="@+id/rlVideo"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.25"
         app:layout_constraintDimensionRatio="5:3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="@dimen/margin_standard"
         >
 
@@ -58,9 +56,8 @@
             android:id="@+id/contentView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:foregroundGravity="center"
             android:layout_centerInParent="true"
-            android:padding="@dimen/padding_middle"
+            android:foregroundGravity="center"
             />
 
     </RelativeLayout>
